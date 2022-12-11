@@ -2,6 +2,7 @@
 import sys
 
 def get_filename():
+    ### input is given as a second argument on the command line
     filename = sys.argv[-1]
 
     if filename.split('.')[-1] != 'txt':
@@ -10,6 +11,7 @@ def get_filename():
         return filename
 
 def split_elf_loads(filename):
+    ### read file and split into a list of lists, one list per elf
     file = open(filename,'r')
 
     input_text = file.read()
@@ -29,6 +31,7 @@ def split_elf_loads(filename):
     return elf_loads
 
 def find_largest_load(elf_loads):
+    ### find the total calories of the largest elf load
 
     largest_load = -1
 
