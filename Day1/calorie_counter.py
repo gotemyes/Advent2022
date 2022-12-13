@@ -41,6 +41,14 @@ def find_largest_load(elf_loads):
 
     return largest_load
 
+def find_largest_three_loads(elf_loads):
+
+    load_sizes = [sum(el) for el in elf_loads]
+
+    load_sizes.sort(reverse=True)
+
+    return load_sizes[:3]
+
 def main():
 
     filename = get_filename()
@@ -50,6 +58,10 @@ def main():
     largest_load = find_largest_load(elf_loads)
 
     print(largest_load)
+
+    largest_three_loads = find_largest_three_loads(elf_loads)
+
+    print(sum(largest_three_loads))
 
 if __name__ == "__main__":
     main()
